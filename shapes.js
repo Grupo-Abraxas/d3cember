@@ -3,7 +3,7 @@ const d3 = window.d3
 
 // Formas básicas
 
-const shapes = d3.select('#shapes')
+const shapes = d3.select('#shapes-root')
 
 // Rectángulo
 shapes
