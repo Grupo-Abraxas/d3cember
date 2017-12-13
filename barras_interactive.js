@@ -49,6 +49,10 @@ const barras = svg
 const rects = barras
   .append('rect')
   .classed('bar', true)
+  .classed('barra-sm', d => d <= 30)
+  .classed('barra-md', d => d > 30 && d <= 66)
+  .classed('barra-lg', d => d > 66)
+  .classed('barra-full', d => d === 100)
   .attr('width', xScale.bandwidth())
   .attr('height', d => yScale(d))
   .attr('y', d => height - yScale(d))
