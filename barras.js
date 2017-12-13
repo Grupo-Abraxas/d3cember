@@ -34,10 +34,9 @@ const yScale = d3
   .range([0, height])
 
 // axes
-const xAxis = d3.axisBottom(xScale).tickFormat((d, i) => {
-  console.log(d, i)
-  return `Columna ${i + 1}`
-})
+const xAxis = d3.axisBottom(xScale).tickFormat((d, i) =>
+  `Columna ${i + 1}`
+)
 
 const yAxis = d3.axisLeft(yScale)
 
@@ -69,7 +68,14 @@ svg
 // column values
 const columnValues = svg
   .selectAll('text.column-label')
-  .data(data)
+  .data(data)svg
+  .append('g')
+  .attr('class', 'x axis')
+  .attr('transform', `translate(0, ${height - 30})`)
+  .call(xAxis)
+  .selectAll('text')
+  .attr('transform', 'translate(12, 35)rotate(90)')
+
   .enter()
   .append('text')
   .attr('class', 'column-label')

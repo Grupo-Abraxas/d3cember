@@ -1,20 +1,13 @@
 body {
   background-color: black;
   color: white;
-  font-family: 'Exo 2', 'sans-serif';
+  font-family: 'Exo 2', 'Roboto', 'sans-serif';
 }
 
 text {
   stroke: white;
   fill: white;
-  font-family: 'sans-serif';
-}
-
-.barras text.column-label {
-  display: none;
-}
-.barras:hover text.column-label {
-  display: auto;
+  font-family: 'Exo 2', 'Roboto', 'sans-serif';
 }
 
 .axis path,
@@ -45,4 +38,11 @@ rect.bar.barra-full {
 
 rect.bar:hover {
   fill: purple;
+}
+
+rect.bar + text.column-label {
+  visibility: hidden;
+}
+rect.bar:hover + text.column-label {
+  visibility: visible;
 }

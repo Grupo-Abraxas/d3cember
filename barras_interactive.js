@@ -9,7 +9,7 @@ const data = _.chain(_.range(10))
 
 const margin = {
   top: 20,
-  bottom: 20,
+  bottom: 100,
   left: 20,
   right: 20
 }
@@ -34,6 +34,9 @@ const yScale = d3
   .domain([0, 100])
   .range([0, height])
 
+// axes
+const xAxis = d3.axisBottom(xScale).tickFormat((d, i) => `Columna ${i + 1}`)
+
 // bars
 const barras = svg
   .selectAll('g.barras')
@@ -55,6 +58,15 @@ const texts = barras
   .classed('column-label', true)
   .attr(
     'transform',
-    d => `translate(${xScale.bandwidth() / 2}, ${height - yScale(d)})`
+    d => `translate(${xScale.bandwidth() / 2}, ${height - yScale(d) - 5})`
   )
+  .attr('text-anchor', 'middle')
   .text(d => d)
+
+svg
+  .append('g')
+  .attr('class', 'x axis')
+  .attr('transform', `translate(0, ${height})`)
+  .call(xAxis)
+  .selectAll('text')
+  .attr('transform', 'translate(12, 35)rotate(90)')
