@@ -1,0 +1,48 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Exo 2', 'sans-serif';
+}
+
+text {
+  stroke: white;
+  fill: white;
+  font-family: 'sans-serif';
+}
+
+.barras text.column-label {
+  display: none;
+}
+.barras:hover text.column-label {
+  display: auto;
+}
+
+.axis path,
+.axis line {
+  stroke: white;
+}
+
+rect.bar {
+  fill: #fdb618;
+  cursor: pointer;
+}
+
+rect.bar.barra-sm {
+  fill: blue;
+}
+
+rect.bar.barra-md {
+  fill: steelblue;
+}
+
+rect.bar.barra-lg {
+  fill: cyan;
+}
+
+rect.bar.barra-full {
+  fill: white;
+}
+
+rect.bar:hover {
+  fill: purple;
+}
